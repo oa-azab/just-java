@@ -21,11 +21,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Calculate the total price of an order.
+     *
+     * @return total price
+     */
+    public int calculatePrice() {
+        int price = quantity * 5;
+        return price;
+    }
+
+    /**
+     * Create summary message of the order
+     *
+     * @param price total price of the order
+     * @return message of the summary
+     */
+    public String createOrderSummary(int price) {
+        String summaryMessage = "Name: Omar Ahmed";
+        summaryMessage += "\nQuantity: " + quantity;
+        summaryMessage += "\nTotal: $" + price;
+        summaryMessage += "\n Thank you!";
+        return summaryMessage;
+    }
+
+    /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        String priceMessage = "Total : $"+(quantity * 5)+"\nThank you!";
-        displayMessage(priceMessage);
+        String summaryMessage = createOrderSummary(calculatePrice());
+        displayMessage(summaryMessage);
     }
 
     /**
